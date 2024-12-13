@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import StringAnimation from "../main/Border/BorderAni";
 
 export const Tabs = ({
   tabs: propTabs,
@@ -27,7 +28,7 @@ export const Tabs = ({
     <>
       <div
         className={cn(
-          "flex flex-row items-center justify-center gap-4 [perspective:1000px] relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full mt-24",
+          "flex flex-row items-center justify-center gap-4 [perspective:1000px] sticky top-0 z-50 bg-transparent  dark:bg-zinc-900  py-4", // Ensures tabs are always visible
           containerClassName
         )}
       >
@@ -52,7 +53,7 @@ export const Tabs = ({
                 layoutId="clickedbutton"
                 transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                 className={cn(
-                  "absolute inset-0 bg-gray-200 dark:bg-zinc-800 rounded-full ",
+                  "absolute inset-0 bg-gray-200 dark:bg-zinc-800 rounded-full",
                   activeTabClassName
                 )}
               />
@@ -64,6 +65,7 @@ export const Tabs = ({
           </button>
         ))}
       </div>
+      <StringAnimation />
       <FadeInDiv
         tabs={tabs}
         active={active}

@@ -1,4 +1,3 @@
-
 import { TabsDemo } from "./Tabs";
 
 const Hero = () => {
